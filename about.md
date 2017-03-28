@@ -1,33 +1,32 @@
 ---
 layout: page
-title: About Monochrome
+title: About
 description: This page describes monochrome.
 ---
-## About
-Monochrome is a minimal, responsive theme created for Jekyll. The goal of Monochrome is to provide a ready to use, plug and play theme for those who want to set up a blog, and focus solely on the content.
+## Yang Yang
+Postdoctral Scholar 
+School of Marine Science, NUIST
+219 Ningliu Road, Nanjing 210044, China
+Email: yangyangoceanographer@gmail.com 
 
-## Features
+## Research Interests
 
-- Completely responsive and mobile first
-- Clean SEO friendly URLs, auto-generated from post title (no messy dates in the url)
-- SEO title/description integration
-- Sitemap ready
-- Easy customization for header, footer, navigation links, colors, favicon etc
-- Default Monochrome Color Palette - black, white, greys
-
-### Setup
-
-Monochrome may be installed by simply downloading the .zip folder from the [repository on Github](https://github.com/thereviewindex/monochrome/archive/master.zip).
-
-After extracting the content from the folder into the selected directory, you can type ``jekyll serve`` from the terminal, than open your browser to ``0.0.0.0:4000/monochrome/`` and you will find it there.
-
-Additionally it is possible to fork the repository and use Github Pages as hosting. By following this way it will be enough to change the ``baseurl`` value into the ``_config.yml`` file, with the directory name of your project (for example /blog) or simply with a "/" (slash) if you want install Monochrome in the root. 
+- Western boundary current dynamics
+- Eddy-mean flow interactions and energetics
+- Mesoscale and submesoscale eddy dynamics
 
 
+## Education
+Ph.D., Atmospheric Sciences, Nanjing University of Information Science and Technology, Nanjing, China, 2014
+M.S., Atmospheric Sciences, Nanjing University of Information Science and Technology, Nanjing, China, 2012
+B.S., Physical Oceanography, Nanjing University of Information Science and Technology, Nanjing, China, 2008
 
-For further details on Monochrome, please visit the [repository on Github](https://github.com/thereviewindex/monochrome/).
 
-![Monochrome](img/monochrome01.png "monochrome")
+## Publications
+
+- ``Yang, Y.``, and X. S. Liang, 2016: The Instabilities and Multiscale Energetics Underlying the Mean–Interannual–Eddy Interactions in the Kuroshio Extension Region. J. Phys. Oceanogr., 46, 1477–1494, [doi:10.1175/JPO-D-15-0226.1](http://journals.ametsoc.org/doi/abs/10.1175/JPO-D-15-0226.1).
+
+- ``Yang, Y.``, X. S. Liang, B. Qiu, and S. Chen, 2017: On the decadal variability of the eddy kinetic energy in the Kuroshio Extension. J. Phys. Oceanogr., [doi:10.1175/JPO-D-16-0201.1](http://journals.ametsoc.org/doi/abs/10.1175/JPO-D-15-0226.1).
 
 
 
