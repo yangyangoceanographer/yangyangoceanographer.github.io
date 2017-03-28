@@ -1,32 +1,39 @@
-# Permalinks
-permalink:           pretty
-
-# Setup
-title:               Poole
-tagline:             The Jekyll Butler
-url:                 http://getpoole.com
-paginate:            1
-baseurl:             ""
-
-# Assets
-#
-# We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
-
-# About/contact
+# Site settings
+title: Blog - technology and science at TheReviewIndex
+description: "A blog for sharing thoughts on technology, science and insights at TheReviewIndex."
+url: "http://www.thereviewindex.github.io/blog"
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name: "The Review Index"
+  email: "root@thereviewindex.com"
+  url: "https://thereviewindex.com"
 
-# Custom vars
-version:             2.0.0
-github:
-  repo:              https://github.com/poole/poole
+# Build settings
+baseurl: /blog # Change this to your relative path (ex: /blog/), or leave just a /
+markdown: kramdown
+source: .
+destination: ./_site
+permalink: /:title
+paginate: 8
+paginate_path: /page:num/
 
-# Gems
+# Default values
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
 gems:
   - jekyll-paginate
-  - jekyll-gist
+  - jekyll-sitemap
+
+# Custom variables
+version: "1.0.0"
+
+# Options
+custom_header: false
+custom_nav_footer: false
+reverse: false

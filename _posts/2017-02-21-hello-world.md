@@ -1,13 +1,9 @@
 ---
-layout: page
-title: About Us
-description: TheReviewIndex aspires to simplify the discovery and research process for gadgets and help you find the right products.
+title: Hello World - TheReviewIndex
+description: The first blog post to introduce TheReviewIndex.
+header: he110 w0r1d
 ---
 
-
-## About Us
-
-&nbsp;
 
 We are TheReviewIndex.com - here to help you discover the right gadgets for your very individual needs.
 
