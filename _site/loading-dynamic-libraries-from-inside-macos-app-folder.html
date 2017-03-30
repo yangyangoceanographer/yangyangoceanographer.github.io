@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Loading dynamic libraries from inside macOS .app-folders</title>
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/third.css">
+        <link rel="stylesheet" href="/static/css/syntax.css">
+        <link href="https://fonts.googleapis.com/css?family=Abel|Rubik:300|Inconsolata" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-24416577-1']);
+            _gaq.push(['_setDomainName', 'svenandersson.se']);
+            _gaq.push(['_setAllowHash', 'false']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+      </script>
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/third.js"></script>
+      
+  <meta content="A minimal, responsive, ready to use blog template, built with Jekyll." name="description">
+
+
+<meta name="twitter:card" value="summary">
+
+<!-- Open Graph data -->
+<meta content="Yang Yang | Physical Oceanographer" property="og:site_name">
+
+  <meta content="Loading dynamic libraries from inside macOS .app-folders" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="A minimal, responsive, ready to use blog template, built with Jekyll." property="og:description">
+
+
+  <meta content="http://localhost:4000/loading-dynamic-libraries-from-inside-macos-app-folder" property="og:url">
+
+
+  <meta content="2016-12-26T00:00:00+08:00" property="article:published_time">
+  <meta content="http://localhost:4000/" property="article:author">
+
+
+
+
+
+  
+
+
+  
+  <meta content="osx" property="article:tag">
+  
+  <meta content="macos" property="article:tag">
+  
+  <meta content="defold" property="article:tag">
+  
+  <meta content="luajit" property="article:tag">
+  
+  <meta content="ffi" property="article:tag">
+  
+  <meta content="dylib" property="article:tag">
+  
+
+
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="/">about + projects</a>
+                <a href="/posts" class="current">posts</a>
+                <a href="/cv.html">resume</a>
+                <a href="http://twitter.com/andsve" class="collapsed collapsed-left"><i class="fa fa-twitter"> </i></a><a href="http://linkedin.com/in/andsve" class="collapsed"><i class="fa fa-linkedin"> </i></a><a href="http://dribbble.com/andsve" class="collapsed"><i class="fa fa-dribbble"> </i></a><a href="http://bitbucket.org/andsve" class="collapsed"><i class="fa fa-bitbucket"> </i></a><a href="http://github.com/andsve" class="collapsed collapsed-right""><i class="fa fa-github"> </i></a>
+            </nav>
+            <h2>
+                Loading dynamic libraries from inside macOS .app-folders
+            </h2>
+        </header>
+        <div id="wrap" class="blog">
+
+            <div id="content">
+        <p>Having trouble loading your dynamic libraries from inside an app-folder on macOS? Tried setting both <code class="highlighter-rouge">DYLD_LIBRARY_PATH</code> and <code class="highlighter-rouge">DYLD_FALLBACK_LIBRARY_PATH</code> through scripts without success? So did I, and here is how I managed to solve it:</p>
+
+<p>First copy the library next to the binary inside the app-folder:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>ls
+Example.app libexample.dylib
+<span class="gp">$ </span>cp libexample.dylib Example.app/Contents/MacOS/</code></pre></figure>
+
+<p>Then add a <code class="highlighter-rouge">rpath</code> to the binary pointing to <code class="highlighter-rouge">@loader_path/.</code>:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>install_name_tool -add_rpath @loader_path/. Example.app/Contents/MacOS/Example</code></pre></figure>
+
+<p>After this you should be able to load the library during runtime. This is super useful if you are trying to load libraries that the binary has not been linked against during build. I ran into this problem when using using <a href="http://luajit.org/ext_ffi.html">LuaJit FFI</a> functions in projects bundled with <a href="http://www.defold.com">Defold</a>.</p>
+
+            </div>
+
+            <div id="footer">
+            Posted on 2016 Dec 26<br>
+            
+            Tags:
+            
+            osx
+            
+            macos
+            
+            defold
+            
+            luajit
+            
+            ffi
+            
+            dylib
+            
+            
+
+              <div id="footer-nav">
+              
+              <span>Previous: <a href="/realtime-rendering-blogs">Real-time Rendering Blogs</a></span>
+              
+              
+              <span>Next: <a href="/rendering-to-full-size-of-an-nswindow-using-glfw3">Rendering to full size of an NSWindow using GLFW3</a></span>
+              
+              </div>
+
+            </div>
+
+            
+            <div id="disqus_thread"></div>
+            <script>
+
+            var disqus_config = function () {
+            this.page.url = 'http://svenandersson.se/loading-dynamic-libraries-from-inside-macos-app-folder';
+            this.page.identifier = '';
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//svenandersson-se.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+
+        </div>
+    </body>
+
+</html>

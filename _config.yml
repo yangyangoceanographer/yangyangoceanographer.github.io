@@ -1,39 +1,12 @@
-# Site settings
-title: Yang Yang | Physical Oceanographer
-description: "A minimal, responsive, ready to use blog template, built with Jekyll."
-url: "http://www.yangyangoceanographer.github.io"
-author:
-  name: "The Review Index"
-  email: "dyutibarma@gmail.com"
-  url: "http://www.yangyangoceanographer.github.io"
 
-# Build settings
-baseurl: "" # Change this to your relative path (ex: /blog/), or leave just a /
+# seo stuff
+url: "http://svenandersson.se"
+title: "Code and Projects by Sven Andersson"
+description: "Code, projects and articles related to realtime rendering, UI, game engine and game development."
+
+disqus_shortname: svenandersson-se
+permalink: /:year/:title.html
 markdown: kramdown
-source: .
-destination: ./_site
-permalink: /:title
-paginate: 8
-paginate_path: /page:num/
-
-# Default values
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-
-# Plugins
-gems:
-  - jekyll-paginate
-  - jekyll-sitemap
-
-# Custom variables
-version: "1.0.0"
-
-# Options
-custom_header: false
-custom_nav_footer: false
-reverse: false
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

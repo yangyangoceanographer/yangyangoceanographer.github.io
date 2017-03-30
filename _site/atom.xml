@@ -4,12 +4,75 @@
  <title>Yang Yang | Physical Oceanographer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-03-30T22:17:18+08:00</updated>
+ <updated>2017-03-30T22:28:24+08:00</updated>
  <author>
    <name>The Review Index</name>
    <uri>http://www.yangyangoceanographer.github.io</uri>
    <email>dyutibarma@gmail.com</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Getting NSTouchBar to play nice with GLFW</title>
+   <link href="http://localhost:4000/getting-nstouchbar-to-play-nice-with-glfw"/>
+   <id>http://localhost:4000/getting-nstouchbar-to-play-nice-with-glfw</id>
+   <updated>2017-01-07T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;I wanted to add some simple buttons in the new fancy &lt;a href=&quot;https://developer.apple.com/reference/appkit/nstouchbar&quot;&gt;NSTouchBar&lt;/a&gt; for one of my projects:&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/static/posts/2017-01-07-touchbar_emoji.png&quot; alt=&quot;TouchBar showing emojis for text input&quot; title=&quot;TouchBar showing emojis for text input&quot; /&gt;&lt;/p&gt; &lt;p&gt;However, I couldn’t find a quick and short introduction on how to use it without going full...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Rendering to full size of an NSWindow using GLFW3</title>
+   <link href="http://localhost:4000/rendering-to-full-size-of-an-nswindow-using-glfw3"/>
+   <id>http://localhost:4000/rendering-to-full-size-of-an-nswindow-using-glfw3</id>
+   <updated>2016-12-29T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;In one of my projects I wanted to render (using OpenGL) to the full area of a window, including the title bar. This would enable me to create a more custom look for my tool, similar to how Spotify looks;&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/static/posts/2016-12-29-spotify.png&quot; alt=&quot;Spotify having a custom window color.&quot; title=&quot;Spotify having...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Loading dynamic libraries from inside macOS .app-folders</title>
+   <link href="http://localhost:4000/loading-dynamic-libraries-from-inside-macos-app-folder"/>
+   <id>http://localhost:4000/loading-dynamic-libraries-from-inside-macos-app-folder</id>
+   <updated>2016-12-26T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;Having trouble loading your dynamic libraries from inside an app-folder on macOS? Tried setting both &lt;code class=&quot;highlighter-rouge&quot;&gt;DYLD_LIBRARY_PATH&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DYLD_FALLBACK_LIBRARY_PATH&lt;/code&gt; through scripts without success? So did I, and here is how I managed to solve it:&lt;/p&gt; &lt;p&gt;First copy the library next to the binary inside the app-folder:&lt;/p&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot;...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Real-time Rendering Blogs</title>
+   <link href="http://localhost:4000/realtime-rendering-blogs"/>
+   <id>http://localhost:4000/realtime-rendering-blogs</id>
+   <updated>2014-01-06T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;A collection of (mostly) rendering and game engine related blogs, in no specific order. I used to have a couple of these as RSS feeds on a now defunct feed aggregator, and until I take the time to input them all into a working one, this post will have to...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Getting started with Physically Based Rendering/Shading</title>
+   <link href="http://localhost:4000/physically-based-rendering"/>
+   <id>http://localhost:4000/physically-based-rendering</id>
+   <updated>2013-12-18T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;This is a collection of Physically Based Rendering/Shading/Lighting material I’ve found scattered around the web. I believe it’s quite handy to have a list like this on various rendering topics, hopefully it can be of use for somebody! And if you find something I have missed, please &lt;a href=&quot;mailto:me@svenandersson.se&quot;&gt;let me...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Echo</title>
+   <link href="http://localhost:4000/first"/>
+   <id>http://localhost:4000/first</id>
+   <updated>2013-12-17T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;Hello World!&lt;/p&gt;
+
+&lt;p&gt;My New Years resolution, albeit quite early, will be to keep this website semi up-to-date with content that interests me, or with information that my doppelgänger could benefit from.&lt;/p&gt;
+</content>
+ </entry>
 
  
 

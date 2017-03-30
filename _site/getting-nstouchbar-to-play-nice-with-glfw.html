@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Getting NSTouchBar to play nice with GLFW</title>
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/third.css">
+        <link rel="stylesheet" href="/static/css/syntax.css">
+        <link href="https://fonts.googleapis.com/css?family=Abel|Rubik:300|Inconsolata" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-24416577-1']);
+            _gaq.push(['_setDomainName', 'svenandersson.se']);
+            _gaq.push(['_setAllowHash', 'false']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+      </script>
+      <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/third.js"></script>
+      
+  <meta content="A minimal, responsive, ready to use blog template, built with Jekyll." name="description">
+
+
+<meta name="twitter:card" value="summary">
+
+<!-- Open Graph data -->
+<meta content="Yang Yang | Physical Oceanographer" property="og:site_name">
+
+  <meta content="Getting NSTouchBar to play nice with GLFW" property="og:title">
+
+
+  <meta content="article" property="og:type">
+
+
+  <meta content="A minimal, responsive, ready to use blog template, built with Jekyll." property="og:description">
+
+
+  <meta content="http://localhost:4000/getting-nstouchbar-to-play-nice-with-glfw" property="og:url">
+
+
+  <meta content="2017-01-07T00:00:00+08:00" property="article:published_time">
+  <meta content="http://localhost:4000/" property="article:author">
+
+
+
+
+
+  
+
+
+  
+  <meta content="osx" property="article:tag">
+  
+  <meta content="macos" property="article:tag">
+  
+  <meta content="glfw" property="article:tag">
+  
+  <meta content="cocoa" property="article:tag">
+  
+  <meta content="objective-c" property="article:tag">
+  
+  <meta content="nstouchbar" property="article:tag">
+  
+  <meta content="touchbar" property="article:tag">
+  
+  <meta content="macbook" property="article:tag">
+  
+
+
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="/">about + projects</a>
+                <a href="/posts" class="current">posts</a>
+                <a href="/cv.html">resume</a>
+                <a href="http://twitter.com/andsve" class="collapsed collapsed-left"><i class="fa fa-twitter"> </i></a><a href="http://linkedin.com/in/andsve" class="collapsed"><i class="fa fa-linkedin"> </i></a><a href="http://dribbble.com/andsve" class="collapsed"><i class="fa fa-dribbble"> </i></a><a href="http://bitbucket.org/andsve" class="collapsed"><i class="fa fa-bitbucket"> </i></a><a href="http://github.com/andsve" class="collapsed collapsed-right""><i class="fa fa-github"> </i></a>
+            </nav>
+            <h2>
+                Getting NSTouchBar to play nice with GLFW
+            </h2>
+        </header>
+        <div id="wrap" class="blog">
+
+            <div id="content">
+        <p>I wanted to add some simple buttons in the new fancy <a href="https://developer.apple.com/reference/appkit/nstouchbar">NSTouchBar</a> for one of my projects:</p>
+
+<p><img src="/static/posts/2017-01-07-touchbar_emoji.png" alt="TouchBar showing emojis for text input" title="TouchBar showing emojis for text input" /></p>
+
+<p>However, I couldn’t find a quick and short introduction on how to use it without going full Objective-C, Swift or Xcode-path.</p>
+
+<p>After some hacking I managed to put together a short version that people should be able to build upon. It will also play nice in C/C++ projects, since that is what most of my codebase is built on.</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cp">#include &lt;GLFW/glfw3.h&gt;
+#define GLFW_EXPOSE_NATIVE_COCOA
+#include &lt;GLFW/glfw3native.h&gt;
+</span>
+<span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">touchBarCustomizationId</span> <span class="o">=</span> <span class="s">@"com.something.customization_id"</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">touchBarItemId</span> <span class="o">=</span> <span class="s">@"com.something.item_id"</span><span class="p">;</span>
+
+<span class="k">@interface</span> <span class="nc">GLFWTouchBarDelegate</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSTouchBarDelegate</span><span class="o">&gt;</span>
+    <span class="o">-</span> <span class="p">(</span><span class="n">NSTouchBar</span> <span class="o">*</span><span class="p">)</span><span class="n">makeTouchBar</span><span class="p">;</span>
+    <span class="k">-</span> <span class="p">(</span><span class="n">NSTouchBarItem</span> <span class="o">*</span><span class="p">)</span><span class="nf">touchBar</span><span class="p">:(</span><span class="n">NSTouchBar</span> <span class="o">*</span><span class="p">)</span><span class="nv">touchBar</span> <span class="nf">makeItemForIdentifier</span><span class="p">:(</span><span class="n">NSTouchBarItemIdentifier</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span>
+    <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">glfwButtonAction</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">sender</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">GLFWTouchBarDelegate</span>
+    <span class="k">-</span> <span class="p">(</span><span class="n">NSTouchBar</span> <span class="o">*</span><span class="p">)</span><span class="n">makeTouchBar</span>
+    <span class="p">{</span>
+        <span class="c1">// Create TouchBar object
+</span>        <span class="n">NSTouchBar</span> <span class="o">*</span><span class="n">touchBar</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSTouchBar</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+        <span class="n">touchBar</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+        <span class="n">touchBar</span><span class="p">.</span><span class="n">customizationIdentifier</span> <span class="o">=</span> <span class="n">touchBarCustomizationId</span><span class="p">;</span>
+
+        <span class="c1">// Set the default ordering of items.
+</span>        <span class="n">touchBar</span><span class="p">.</span><span class="n">defaultItemIdentifiers</span> <span class="o">=</span> <span class="p">@[</span><span class="n">touchBarItemId</span><span class="p">,</span> <span class="n">NSTouchBarItemIdentifierOtherItemsProxy</span><span class="p">];</span>
+        <span class="n">touchBar</span><span class="p">.</span><span class="n">customizationAllowedItemIdentifiers</span> <span class="o">=</span> <span class="p">@[</span><span class="n">touchBarItemId</span><span class="p">];</span>
+        <span class="n">touchBar</span><span class="p">.</span><span class="n">principalItemIdentifier</span> <span class="o">=</span> <span class="n">touchBarItemId</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="n">touchBar</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">-</span> <span class="p">(</span><span class="n">NSTouchBarItem</span> <span class="o">*</span><span class="p">)</span><span class="n">touchBar</span><span class="o">:</span><span class="p">(</span><span class="n">NSTouchBar</span> <span class="o">*</span><span class="p">)</span><span class="n">touchBar</span> <span class="n">makeItemForIdentifier</span><span class="o">:</span><span class="p">(</span><span class="n">NSTouchBarItemIdentifier</span><span class="p">)</span><span class="n">identifier</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">identifier</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="n">touchBarItemId</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">NSButton</span> <span class="o">*</span><span class="n">button</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSButton</span> <span class="nf">buttonWithTitle</span><span class="p">:</span><span class="n">NSLocalizedString</span><span class="p">(</span><span class="s">@"GLFW Rules"</span><span class="p">,</span> <span class="s">@""</span><span class="p">)</span> <span class="nf">target</span><span class="p">:</span><span class="n">self</span> <span class="n">action</span><span class="o">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">glfwButtonAction</span><span class="o">:</span><span class="p">)];</span>
+
+            <span class="n">NSCustomTouchBarItem</span><span class="o">*</span> <span class="n">g_TouchBarItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSCustomTouchBarItem</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithIdentifier</span><span class="p">:</span><span class="n">touchBarItemId</span><span class="p">];</span>
+            <span class="n">g_TouchBarItem</span><span class="p">.</span><span class="n">view</span> <span class="o">=</span> <span class="n">button</span><span class="p">;</span>
+            <span class="n">g_TouchBarItem</span><span class="p">.</span><span class="n">customizationLabel</span> <span class="o">=</span> <span class="n">NSLocalizedString</span><span class="p">(</span><span class="s">@"Truth Button"</span><span class="p">,</span> <span class="s">@""</span><span class="p">);</span>
+
+            <span class="k">return</span> <span class="n">g_TouchBarItem</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">glfwButtonAction</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">sender</span>
+    <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"The 'GLFW Rules' button was pressed!"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="k">@end</span>
+
+<span class="c1">// Call this from your C++ side:
+</span><span class="n">GLFWTouchBarDelegate</span><span class="o">*</span> <span class="n">g_TouchBarDelegate</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ShowTouchBar</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">g_TouchBarDelegate</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">g_TouchBarDelegate</span> <span class="o">=</span> <span class="p">[[</span><span class="n">GLFWTouchBarDelegate</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">NSApplication</span> <span class="nf">sharedApplication</span><span class="p">].</span><span class="n">automaticCustomizeTouchBarMenuItemEnabled</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">NSTouchBar</span><span class="o">*</span> <span class="n">touchBar</span> <span class="o">=</span> <span class="p">[</span><span class="n">g_TouchBarDelegate</span> <span class="nf">makeTouchBar</span><span class="p">];</span>
+
+    <span class="n">NSWindow</span><span class="o">*</span> <span class="n">nswin</span> <span class="o">=</span> <span class="n">glfwGetCocoaWindow</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">nswin</span><span class="p">.</span><span class="n">touchBar</span> <span class="o">=</span> <span class="n">touchBar</span><span class="p">;</span>
+    <span class="c1">// If not using GLFW or unknown NSWindow*:
+</span>    <span class="cm">/*
+    // Somehow I needed to loop over `windows` here,
+    // not sure why, but `mainWindow` did not work, oh well.
+    NSArray&lt;NSWindow*&gt;* windows = [NSApplication sharedApplication].windows;
+    for (int i = 0; i &lt; windows.count; ++i) {
+        NSWindow* wnd = windows[i];
+        wnd.touchBar = touchBar;
+    }
+    */</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>This will create a touchbar with one button, displaying “<em>GLFW Rules</em>”, when <code class="highlighter-rouge">ShowTouchBar()</code> is called.</p>
+
+<p>In the example I’m using GLFW, but it is also possible to uncomment the last part to get it working with other frameworks that does not supply the active <code class="highlighter-rouge">NSWindow*</code>.</p>
+
+<p>Here is a quick screenshot of the result of the example code above:</p>
+
+<p><img src="/static/posts/2017-01-07-glfw-button.png" alt="TouchBar showing the GLFW Rules button." title="TouchBar showing the GLFW Rules button." /></p>
+
+            </div>
+
+            <div id="footer">
+            Posted on 2017 Jan 07<br>
+            
+            Tags:
+            
+            osx
+            
+            macos
+            
+            glfw
+            
+            cocoa
+            
+            objective-c
+            
+            nstouchbar
+            
+            touchbar
+            
+            macbook
+            
+            
+
+              <div id="footer-nav">
+              
+              <span>Previous: <a href="/rendering-to-full-size-of-an-nswindow-using-glfw3">Rendering to full size of an NSWindow using GLFW3</a></span>
+              
+              
+              </div>
+
+            </div>
+
+            
+            <div id="disqus_thread"></div>
+            <script>
+
+            var disqus_config = function () {
+            this.page.url = 'http://svenandersson.se/getting-nstouchbar-to-play-nice-with-glfw';
+            this.page.identifier = '';
+            };
+            (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//svenandersson-se.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+
+        </div>
+    </body>
+
+</html>
