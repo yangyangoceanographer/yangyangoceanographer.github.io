@@ -4,41 +4,21 @@
  <title>Yang Yang | Physical Oceanographer</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-03-30T16:17:42+08:00</updated>
+ <updated>2017-03-30T21:37:19+08:00</updated>
  <author>
    <name>The Review Index</name>
-   <uri>http://www.yangyangoceanographer.io</uri>
+   <uri>http://www.yangyangoceanographer.github.io</uri>
    <email>dyutibarma@gmail.com</email>
  </author>
 
  
 
  <entry>
-   <title>TheReviewIndex | Unbiased User Review Summaries | Monochrome</title>
+   <title>About</title>
    <link href="http://localhost:4000/thereviewindex-introduction"/>
    <id>http://localhost:4000/thereviewindex-introduction</id>
    <updated>2017-02-18T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;The internet is a source of a humongous amount of unstructured content for all sorts of products, in the form of blogs, videos, user and expert reviews, etc. It is almost impossible for anyone to scour all of this disparate data, with contradictory opinions, and thereafter make a correct, or...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Typography Example | Monochrome</title>
-   <link href="http://localhost:4000/typography-example"/>
-   <id>http://localhost:4000/typography-example</id>
-   <updated>2017-02-14T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/monochrome/img/img-test.png&quot; alt=&quot;Test&quot; title=&quot;Test&quot; /&gt; Lorem ipsum dolor sit amet, &lt;a href=&quot;http://www.example.com&quot;&gt;consectetur adipisicing&lt;/a&gt; elit. Id, aliquam magni et officiis nemo nihil aliquid placeat alias. Eum voluptates ducimus, nobis ex illum laboriosam quidem corrupti impedit ratione in voluptatum amet beatae facilis temporibus voluptate praesentium voluptatibus! At ab, iusto error amet eveniet...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Code Example</title>
-   <link href="http://localhost:4000/code-example"/>
-   <id>http://localhost:4000/code-example</id>
-   <updated>2017-02-12T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the &lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Jekyll documentation&lt;/a&gt;. In this way the code will be included into a &lt;code class=&quot;highlighter-rouge&quot;&gt;.highlight&lt;/code&gt; CSS class and will be highlight according to the &lt;a href=&quot;https://github.com/mojombo/tpw/blob/master/css/syntax.css&quot;&gt;syntax.scss&lt;/a&gt; file. This is the...</content>
+   <content type="html">&lt;h2 id=&quot;yang-yang&quot;&gt;Yang Yang&lt;/h2&gt; &lt;p&gt;&lt;img src=&quot;http://yang-yang.info/wp-content/uploads/2016/06/selfie-225x300.jpg&quot; alt=&quot;selfie&quot; /&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Postdoctral Scholar&lt;/li&gt; &lt;li&gt;School of Marine Science, NUIST&lt;/li&gt; &lt;li&gt;219 Ningliu Road, Nanjing 210044, China&lt;/li&gt; &lt;li&gt;Email: yangyangoceanographer@gmail.com&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;research-interests&quot;&gt;Research Interests&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Western boundary current dynamics&lt;/li&gt; &lt;li&gt;Eddy-mean flow interactions and energetics&lt;/li&gt; &lt;li&gt;Mesoscale and submesoscale eddy dynamics&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;education&quot;&gt;Education&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Ph.D., Atmospheric Sciences, Nanjing...</content>
  </entry>
 
  

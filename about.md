@@ -16,12 +16,10 @@ description: This page describes monochrome.
 - Eddy-mean flow interactions and energetics
 - Mesoscale and submesoscale eddy dynamics
 
-
 ## Education
 - Ph.D., Atmospheric Sciences, Nanjing University of Information Science and Technology, Nanjing, China, 2014
 - M.S., Atmospheric Sciences, Nanjing University of Information Science and Technology, Nanjing, China, 2012
 - B.S., Physical Oceanography, Nanjing University of Information Science and Technology, Nanjing, China, 2008
-
 
 ## Publications
 
