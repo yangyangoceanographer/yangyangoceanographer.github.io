@@ -1,6 +1,6 @@
 ---
 layout: three_posts
-title: Posts and Articles
+title: Posts
 ---
 
 <ul id="posts">

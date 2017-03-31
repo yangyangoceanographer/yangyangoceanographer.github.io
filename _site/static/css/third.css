@@ -1,6 +1,6 @@
 body {
-    background-color: #3f4144;
-    color: #b7b8bb;
+    /*background-color: #3f4144;*/
+    color: #000;
     /*background-color: #b7b8bb;*/
     /*color: #000;*/
     font-family: 'Rubik', sans-serif;
@@ -8,7 +8,7 @@ body {
 }
 
 a {
-    color: #ededed;
+    /*color: #ededed;*/
     text-decoration: none;
 }
 
